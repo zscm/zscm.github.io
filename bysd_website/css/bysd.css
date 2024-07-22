@@ -1,0 +1,135 @@
+@charset "utf-8";
+body,
+div {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+}
+
+body {
+    text-align: center;
+    font-family: 微软雅黑, Arial, 宋体, sans-serif;
+    background-image: linear-gradient(to bottom, #FFFFFF, #FFFFFF);
+    margin: 0;
+}
+
+*::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    display: none;
+}
+
+*::-webkit-scrollbar:vertical {
+    width: 0;
+    height: 0;
+    display: none;
+}
+
+*::-webkit-scrollbar:horizontal {
+    width: 0;
+    height: 0;
+    display: none;
+}
+
+img {
+    border: 0;
+}
+
+.wraper {
+    min-width: 304px;
+    max-width: 750px;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    background: black;
+}
+
+#showbg {
+    position: relative;
+    width: 100%;
+}
+
+#bysdtop {
+    min-width: 304px;
+    max-width: 750px;
+    width: 100%;
+    position: fixed;
+    top: 0%;
+    z-index: 99;
+}
+
+#bysdbg {
+    min-width: 304px;
+    max-width: 750px;
+    width: 100%;
+    position: fixed;
+    top: 2%;
+    z-index: 100;
+}
+
+#download {
+    text-align: center;
+    float: none;
+    width: 40%;
+    right: 5%;
+    position: absolute;
+}
+
+#swiper {
+    width: 100%;
+    position: absolute;
+    top: 66%;
+}
+
+.wrapper {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.content {
+    margin: 0;
+    padding: 0;
+    padding-left: 3%;
+    width: 150%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.content li {
+    float: left;
+    width: 25%;
+    list-style: none;
+    margin-left: 1%;
+}
+
+.content li img {
+    display: block;
+    width: 100%;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0%;
+    width: 100%;
+}
+
+.footer p {
+    text-align: center;
+    color: #fff;
+    margin-top: 0px;
+    font-size: .2rem;
+}
+
+.showshow {
+    position: relative;
+    width: 100%;
+}

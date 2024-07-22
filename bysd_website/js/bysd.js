@@ -84,6 +84,7 @@ function getDataByIp(ip) {
     const url = `https://webapi-pc.meitu.com/common/ip_location?ip=${ip}`;
     var xhr = new XMLHttpRequest();
     xhr.open('GET', url, true);
+    xhr.setRequestHeader("CONTENT-TYPE", "application/x-www-form-urlencoded");
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {

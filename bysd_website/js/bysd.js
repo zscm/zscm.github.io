@@ -81,30 +81,31 @@ function show404() {
 }
 
 function getDataByIp(ip) {
-    const url = `https://webapi-pc.meitu.com/common/ip_location?ip=${ip}`;
+    const url = `https://ipaddquery.api.bdymkt.com/ip/query?ip=${ip}&`;
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', url, true);
-    xhr.setRequestHeader("CONTENT-TYPE", "application/x-www-form-urlencoded");
+    xhr.open('POST', url);
+    xhr.setRequestHeader("CONTENT-TYPE", "application/json;charset=UTF-8");
+    xhr.setRequestHeader("X-Bce-Signature", "AppCode/864d9391994c4c689958db83456e4c60");
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {
                 var resultData = JSON.parse(xhr.responseText);
-                if (resultData && resultData.code == 0) {
-                    let hasConfig = false;
-                    for (let i = 0; i < CONFIGREGION.length; i++) {
-                        if (resultData.data[ip].province.indexOf(CONFIGREGION[i]) != -1) {
-                            hasConfig = true;
-                            break;
-                        }
-                    }
-                    if (hasConfig) {
-                        showBg();
-                    } else {
-                        show404();
-                    }
-                } else {
-                    show404();
-                }
+                // if (resultData && resultData.code == 0) {
+                //     let hasConfig = false;
+                //     for (let i = 0; i < CONFIGREGION.length; i++) {
+                //         if (resultData.data[ip].province.indexOf(CONFIGREGION[i]) != -1) {
+                //             hasConfig = true;
+                //             break;
+                //         }
+                //     }
+                //     if (hasConfig) {
+                //         showBg();
+                //     } else {
+                //         show404();
+                //     }
+                // } else {
+                //     show404();
+                // }
             }
         }
     };

@@ -54,32 +54,12 @@
             "台湾"
         ]; // 省份（直辖市、自治区、省）
 
-        function getUserIP(callback) {
-            var xhr = new XMLHttpRequest();
-            xhr.open('GET', 'https://api.ipify.org?format=json', true);
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState === 4) {
-                    if (xhr.status === 200) {
-                        var ipData = JSON.parse(xhr.responseText);
-                        callback(ipData);
-                    }
-                }
-            };
-            xhr.send();
-        }
-
         function getValue() {
             var input = document.getElementById('myInput');
             var value = input.value;
             console.log(value);
             if (!(value && value.length)) {
-                getUserIP(function(ipData) {
-                    if (!(ipData && ipData.ip)) {
-                        show404();
-                        return;
-                    }
-                    getDataByIp(ipData.ip);
-                });
+                getDataByIp();
             } else {
                 getDataByIp(value);
             }
@@ -90,7 +70,8 @@
         }
 
         function getDataByIp(ip) {
-            fetch(`https://api.vvhan.com/api/ipInfo?ip=${ip}`)
+            const url = ip ? `https://api.vvhan.com/api/ipInfo?ip=${ip}` : `https://api.vvhan.com/api/ipInfo`;
+            fetch(url)
                 .then(response => response.json())
                 .then(data => {
                     console.log("data: ", data);
